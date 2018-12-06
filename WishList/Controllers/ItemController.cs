@@ -42,7 +42,8 @@ namespace WishList.Controllers
         [HttpPost]
         public IActionResult Delete(int Id)
         {
-            _context.Items.Remove(_context.Items.Find(Id));
+            var item = _context.Items.Find(Id);
+            _context.Items.Remove(item);
             _context.SaveChanges();
 
             return RedirectToAction("Index");
